@@ -29,7 +29,7 @@ def url_builder(*buttons: List[str], per_row: int = 1) -> InlineKeyboardMarkup:
     return b.as_markup()
 
 
-def inline_builder(*buttons: List[str], per_row: List[int]) -> InlineKeyboardMarkup:
+def inline_builder(*buttons: List[str], per_row: List[int] = 1) -> InlineKeyboardMarkup:
     """easy generation of inline buttons with callback data
 
     :argument:
@@ -51,7 +51,8 @@ def inline_builder(*buttons: List[str], per_row: List[int]) -> InlineKeyboardMar
     for btn in buttons:
         b.button(text=btn[0], callback_data=btn[1])
 
-    if not per_row:
-        per_row = [1]
+    if isinstance(per_row, int):
+        per_row = [per_row]
+
     b.adjust(*per_row)
     return b.as_markup()
