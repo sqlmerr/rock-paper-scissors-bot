@@ -47,7 +47,7 @@ async def search_game(event: Union[CallbackQuery, Message], user: User):
             p: User
             p.status = PlayerStatus.playing
             p.current_game = game.id
-            await event.bot.send_message(p.user_id, "Found a game!")
+            await event.bot.send_message(p.user_id, "🔍 <b><i>Found a game!</i></b>")
 
             await p.save()
 
@@ -67,7 +67,7 @@ async def leave_game(call: CallbackQuery, user: User):
         opponent.status = PlayerStatus.nothing
         opponent.current_game = None
         await opponent.save()
-        await call.bot.send_message(opponent.user_id, "Your opponent left the game")
+        await call.bot.send_message(opponent.user_id, "<b><i>Your opponent left the game</i></b>")
 
         await game.delete()
         await call.answer("You have successfully left the game")

@@ -1,4 +1,5 @@
 from loguru import logger
+from datetime import datetime
 
 from aiogram import Router, F
 from aiogram.types import Message
@@ -15,7 +16,8 @@ router = Router()
 async def start_cmd(message: Message):
     if not await get_user(message.from_user.id):
         user = User(
-            user_id=message.from_user.id
+            user_id=message.from_user.id,
+            register_date=datetime.utcnow()
         )
 
         await user.insert()

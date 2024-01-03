@@ -56,9 +56,9 @@ async def chosen_call(call: CallbackQuery, user: User):
         winner.wins += 1
         await winner.save()
         for player in game.players:
-            text = "You lose!"
+            text = "<b><i>You lose!</i></b>"
             if player.user_id == winner.user_id:
-                text = "You won!"
+                text = "<b><i>You won!</i></b>"
             await call.bot.send_message(
                 player.user_id,
                 text
@@ -81,7 +81,7 @@ async def chosen_call(call: CallbackQuery, user: User):
             await playing_game(call.bot, game)
             return
 
-        await call.bot.send_message(round_winner, "You won this round")
+        await call.bot.send_message(round_winner, "<b><i>You won this round</i></b>")
         for index, player in enumerate(game.players):
             if player.user_id == int(round_winner):
                 game.score[index] += 1
