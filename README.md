@@ -1,15 +1,13 @@
-# Telegram bot template
+# Rock paper scissors
 
 aiogram 3.3.0
-
-aiogram-dialog 2.1.0
 
 MongoDB
 
 ## Install
 ```bash
-git clone https://github.com/sqlmerr/aiogram-bot-template
-cd aiogram-bot-template
+git clone https://github.com/sqlmerr/rock-paper-scissors-bot
+cd rock-paper-scissors-bot
 pip install -r requirements.txt
 ```
 
