@@ -1,5 +1,5 @@
 from aiogram import Router
-from . import basic, game
+from . import basic, search
 
 
 def register_routers() -> Router:
@@ -7,7 +7,8 @@ def register_routers() -> Router:
 
     router.include_routers(
         basic.router,
-        game.router
+        search.router,
+        search.playing.router,
     )
 
     return router
